@@ -1,0 +1,106 @@
+LINUX ASSIGNMENT -4
+
+1. Extract usernames from /etc/passwd using grep and tee:
+We can take only the usernames (first field) and save them while showing on screen:
+
+cut -d: -f1 /etc/passwd | tee usernames.txt
+
+Here:
+
+cut -d: -f1 → picks only usernames.
+
+tee usernames.txt → saves into a file and also prints on screen.
+
+
+2. Binary not found in $PATH:
+If a command is missing, follow these steps:
+
+Use which command_name → check if it is in PATH.
+
+Use find / -name command_name 2>/dev/null → search in the whole system.
+
+Use locate command_name → faster search (if mlocate database is updated).
+
+If it is outside $PATH, add the path like this:
+
+export PATH=$PATH:/path/to/folder
+
+
+3. Command to find .log files modified in last 24 hours and save:
+
+find /var/log -name "*.log" -mtime -1 | tee log_report.txt
+
+-mtime -1 → files changed in last 1 day.
+
+Results are shown and stored in log_report.txt.
+
+
+4. Difference between shutdown -r now and reboot:
+
+shutdown -r now → stops services safely, closes files, and then restarts.
+
+reboot → directly restarts without going through the safe shutdown process.
+
+
+5. Using tee to debug script output and errors:
+
+./myscript.sh 2>&1 | tee output.txt
+
+2>&1 → combines error messages with normal output.
+
+tee → saves everything in a file while still showing it on screen.
+
+
+6. Three real-world uses of Linux:
+
+Web hosting → Most websites run on Linux servers (Apache, Nginx).
+
+Cloud platforms → AWS, Google Cloud, and Azure depend heavily on Linux.
+
+Devices and IoT → Smart TVs, routers, mobiles, and robots often use Linux inside.
+
+
+7. Difference between application, system, and utility software:
+
+Application software → Programs people use (like browsers, editors, games).
+
+System software → The Linux kernel and OS that control hardware.
+
+Utility software → Helpful tools like grep, tar, ls used for day-to-day tasks.
+
+
+8. Open-source vs Proprietary OS:
+
+Open-source: Free, code is open, anyone can modify (example: Linux).
+
+Proprietary: Closed, controlled by company, usually paid (example: Windows).
+
+Support: Open-source has community help, proprietary has official company support.
+
+
+9. Command to see system kernel version:
+
+uname -r
+
+(or)
+
+cat /proc/version
+
+
+10. Difference between head and tail:
+
+head → shows the top part (first 10 lines by default).
+
+tail → shows the bottom part (last 10 lines by default).
+
+
+Example:
+
+head file.txt   # first lines  
+tail file.txt   # last lines
+
+Submitted by:
+JESTIN JERALD A  
+3c section 
+Roll no :51 (ENG24CY0116)
+Cybersecurity department 
