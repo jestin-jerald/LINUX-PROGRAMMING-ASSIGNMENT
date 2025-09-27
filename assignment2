@@ -1,0 +1,103 @@
+●	LINUX ASSIGNMENT -2
+
+1. Explain the use of pwd, whoami, and hostname commands.
+
+pwd → Stands for “print working directory”. It shows the current folder path where we are working.
+
+whoami → Displays the name of the logged-in user.
+
+hostname → Shows the name of the computer in the network. 
+
+2. Command to create a folder and add three text files into it.
+
+Steps:
+
+mkdir /home/student/project     # create project folder
+cd /home/student/project        # move inside the folder
+touch a.txt b.txt c.txt         # make 3 text files
+
+Now a folder project is created inside /home/student and three empty text files are kept in it.
+
+3. Difference between Absolute Path and Relative Path.
+
+Absolute Path → Full address of the file from the root /.
+Example: /home/student/project/a.txt
+
+Relative Path → Address written from the current working folder.
+Example: If I am already in /home/student, then simply writing project/a.txt is enough.
+
+4. Command to see already typed commands.
+
+The command is:
+
+history
+
+It shows the list of previously executed commands with serial numbers.
+
+5. Difference between find and locate. Which is faster?
+
+find → Searches directly in the file system. Accurate but takes more time.
+
+locate → Searches in a stored database. Very quick, but may not show the latest files until the database is updated.
+👉 locate is faster because it doesn’t scan the whole disk each time.
+
+6. Command to change file permissions.
+
+Command: chmod
+
+Example:
+
+
+chmod 755 test.sh
+
+Now, the owner can read, write, run the file. Group and others can only read and run.
+
+7. Meaning of file permission -rw-r--r--.
+
+Owner → Can read and write.
+
+Group → Can only read.
+
+Others → Can only read.
+So, only the owner can edit the file, everyone else can just view it.
+
+
+8. Difference between chown and chgrp.
+
+chown → Changes the owner of a file.
+
+chgrp → Changes the group of a file.
+
+Example:
+
+
+chown rahul notes.txt     # Owner becomes rahul
+chgrp staff notes.txt     # Group becomes staff
+
+
+9. A file should be readable by everyone but writable only by the owner.
+
+Use this:
+
+chmod 644 filename
+
+Now → Owner = read + write, Group = read only, Others = read only.
+
+
+
+10. How to check manual page of a command?
+
+Use the man command.
+Example:
+
+man ls
+
+This opens the manual for ls.
+
+Submitted by:
+JESTIN JERALD A 
+3C sec 
+Roll no:51
+ENG24CY0116
+Cybersecurity department 
+
