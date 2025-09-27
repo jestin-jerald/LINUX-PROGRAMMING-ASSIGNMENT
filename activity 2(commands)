@@ -1,0 +1,89 @@
+# linux-commands
+Activity 2:
+tree options (man tree)
+tree -a
+
+List all files, including hidden ones.
+
+tree -d
+
+List directories only, not files.
+
+tree -u
+
+Show the user owner of each file.
+
+tree -g
+
+Show the group owner of each file.
+
+tree -p
+
+Show the permissions (rwx) of each file.
+
+Exploring More Commands
+ifconfig
+
+Show or configure network interfaces.
+Displays IP address, MAC address, etc.
+
+ping <host>
+
+Test connectivity by sending ICMP packets to a host.
+(jestin㉿kali)-[~] ping yahoo.com
+PING yahoo.com (74.6.143.25) 56(84) bytes of data.
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=1 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=2 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=3 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=4 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=5 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=6 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=7 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=8 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=9 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=10 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=11 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=12 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=13 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=14 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=15 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=16 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=17 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=18 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=19 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=20 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=21 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=22 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=23 ttl=55 time=217 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=24 ttl=55 time=206 ms
+64 bytes from media-router-fp73.prod.media.vip.bf1.yahoo.com (74.6.143.25): icmp_seq=25 ttl=55 time=217 ms
+
+traceroute <host>
+
+Show the path packets take to reach a host.
+Example: traceroute yahoo.com
+(jestin㉿kali)-[~] traceroute yahoo.com
+traceroute to yahoo.com (74.6.231.20), 30 hops max, 60 byte packets
+ 1  _gateway (10.1.64.1)  0.249 ms  0.234 ms  0.227 ms
+ 2  125.21.126.121 (125.21.126.121)  4.708 ms static-77.8.195.14-tataidc.co.in (14.195.8.77)  2.492 ms 125.21.126.121 (125.21.126.121)  4.693 ms
+ 3  115.111.221.61.static-banglore.vsnl.net.in (115.111.221.61)  3.984 ms 116.119.44.136 (116.119.44.136)  209.170 ms 116.119.112.98 (116.119.112.98)  210.773 ms
+ 4  172.28.118.237 (172.28.118.237)  17.421 ms  18.134 ms  17.407 ms
+ 5  ae-15.pat2.sjc.yahoo.com (209.191.64.244)  225.045 ms  225.038 ms ix-ae-0-100.tcore1.mlv-mumbai.as6453.net (180.87.38.5)  17.417 ms
+ 6  ae-8.pat2.dnx.yahoo.com (209.191.65.168)  248.393 ms *  240.231 ms
+ 7  ae-5.pat2.nez.yahoo.com (209.191.64.224)  246.048 ms if-bundle-12-2.qcore4.ldn-london.as6453.net (180.87.39.21)  140.205 ms ae-0.pat1.nez.yahoo.com (209.191.64.220)  245.733 ms
+ 8  if-bundle-29-2.qcore1.ldn-london.as6453.net (209.58.105.3)  139.862 ms et-0-1-1.msr2.ne1.yahoo.com (209.191.65.121)  257.458 ms et-12-0-1.msr2.ne1.yahoo.com (209.191.65.115)  247.107 ms
+ 9  et-10-0-0.clr2-a-gdc.ne1.yahoo.com (98.138.2.11)  254.229 ms et-1-0-0.clr1-a-gdc.ne1.yahoo.com (98.138.97.61)  240.268 ms^C
+
+nmap <host>
+
+Network scanner: find open ports, services, and hosts.
+Example: nmap 192.168.1.1
+
+mkdir <dir>
+
+Make a new directory.
+Example:(jestin㉿kali)-[~]
+└─$ mkdir bye
+(jestin㉿kali)-[~]
+└─$ ls
+Desktop  Documents  Downloads   bye  Music  Pictures  Public  Templates  Videos
