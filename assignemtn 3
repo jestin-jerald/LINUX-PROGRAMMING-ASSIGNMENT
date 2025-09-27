@@ -1,0 +1,125 @@
+LINUX ASSIGNMENT -3
+
+Q1. Difference between man and whatis commands with example. (CO1)
+
+man command → It opens the manual (help book) of a command. It gives detailed usage, options, and explanation.
+Example:
+
+man ls
+
+→ Shows full guide of ls.
+
+whatis command → It shows only a short one-line description of the command.
+Example:
+
+whatis ls
+
+→ Output: ls (1) - list directory contents.
+
+
+ So, man = full manual, whatis = short meaning.
+
+
+Q2. Save output of ls -l into file and show it at the same time. (CO4)
+
+ls -l | tee output.txt
+
+This command shows the list of files on the screen and also saves the same result into output.txt.
+
+
+Q3. Example of using tee command in logging. (CO4)
+
+tee can be used to record outputs while still displaying them.
+Example:
+
+ping -c 3 google.com | tee log.txt
+
+It prints the ping result on the screen and also writes it inside log.txt. This is useful when we want to keep logs while monitoring live output.
+
+
+Q4. Steps to install Ubuntu 25.04 LTS in VirtualBox. (CO2)
+
+1. Download Ubuntu 25.04 LTS ISO file.
+
+2. Open VirtualBox → click New and make a VM.
+
+3. Choose type = Linux, version = Ubuntu (64-bit).
+
+4. Assign memory (RAM) → around 2–4 GB.
+
+5. Create a virtual hard disk (20 GB or more).
+
+6. Go to Settings → Storage → add the Ubuntu ISO.
+
+7. Start the VM → installer will begin.
+
+8. Select language, keyboard, and installation type.
+
+9. Enter username and password.
+
+10. Finish setup and restart. Ubuntu will be ready.
+
+
+Q5. How to solve Kernel Panic Error in Ubuntu installation? (CO3)
+
+Check if ISO file is not broken (verify checksum).
+
+Give enough RAM and CPU to the VM.
+
+Enable virtualization (VT-x/AMD-V) in BIOS and VirtualBox.
+
+Update VirtualBox version if needed.
+
+If problem continues, try recovery mode or minimal installation.
+
+
+Q6. Show hostname and change it using sysctl. (CO1)
+
+To see current hostname:
+
+hostname
+
+To change hostname (temporary):
+
+sudo sysctl kernel.hostname=newname
+
+To make change permanent, edit the file /etc/hostname.
+
+
+Q7. Command to show calendar of August 1984. (CO1)
+
+cal 8 1984
+
+
+Q8. Command to show system uptime and logged-in users. (CO3)
+
+Option 1:
+
+uptime && who
+
+Option 2 (combined in one):
+
+W
+
+
+Q9. Command to find all .c files in /home/user. (CO1)
+
+find /home/user -name "*.c"
+
+
+Q10. Change file permission so only owner can read and write. (CO1)
+
+chmod 600 filename
+
+Here:
+
+Owner → can read and write.
+
+Group → no access.
+
+Others → no access.
+
+NAME-JESTIN JERALD A 
+CLASS-3C
+ROLL NI-51
+USN-ENG24CY0116
