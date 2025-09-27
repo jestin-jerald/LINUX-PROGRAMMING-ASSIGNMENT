@@ -1,0 +1,300 @@
+# linux-commands
+Activity -1
+part 1
+man ls -b
+
+Description: Print non-graphic characters (special chars, control chars) in C-style escape sequences (e.g., newline as \n, tab as \t).
+(jestin㉿kali)-[~]
+└─$ ls -b
+Desktop  Documents  Downloads  hash.txt  hellooo.txt  hi  Music  Pictures  Public  Templates  Videos
+man ls -c
+
+Description: Sort files by ctime (time of last modification of file status) instead of modification time (-t).
+When listing long format (-l), show ctime instead of modification time.
+(jestin㉿kali)-[~]
+└─$ ls -c
+hi  Downloads  hash.txt  hellooo.txt  Desktop  Documents  Music  Pictures  Public  Templates  Videos
+
+man ls -d
+
+Description: List the directory name itself, not its contents.
+Example: ls -d /etc → shows /etc instead of listing everything inside /etc.
+(jestin㉿kali)-[~]
+└─$ ls -d Downloads
+Downloads
+
+man ls -f
+
+Description: Do not sort files, just list them in the order found in the directory.
+Also enable -a (show hidden files) and disable formatting.
+(jestin㉿kali)-[~]
+└─$ ls -f          
+.bash_logout  .face.icon                 .local     Desktop           Downloads  .face        .profile  Music
+.zsh_history  .john                      .config    .zprofile         Public     .mozilla     
+.java          .              .cache     .bashrc.original  Videos     Documents    ..
+.bashrc       .sudo_as_admin_successful  Templates  .zshrc            .          hellooo.txt  Pictures
+
+man ls -g
+
+Description: Same as -l, but do not show the owner field.
+Lists group info only.
+─(jestin㉿kali)-[~]
+└─$ ls -g
+total 44
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Desktop
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Documents
+drwxr-xr-x 2 jestin4096 Jul 20 18:51 Downloads
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Music
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Pictures
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Public
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Templates
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Videos
+
+man ls -h
+
+Description: With -l, print file sizes in human-readable format (e.g., 1K, 234M, 2G).
+(jestin㉿kali)-[~]
+└─$ ls -h
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+man ls -i
+
+Description: Print the inode number of each file.
+(jestin㉿kali)-[~]
+└─$ ls -i
+2621633 Desktop    2621634 Downloads  2621638 Music     2621636 Public     2621640 Videos
+2621637 Documents  2621639 Pictures   2621635 Templates
+man ls -l
+
+Description: Use long listing format. Shows details like permissions, owner, group, size, and timestamp.
+(jestin㉿kali)-[~]
+└─$ ls -l
+total 44
+drwxr-xr-x 2 jestin jestin 4096 Jul 20 17:34 Desktop
+drwxr-xr-x 2 jestin jestin 4096 Jul 20 17:34 Documents
+drwxr-xr-x 2 jestin jestin 4096 Jul 20 18:51 Downloads
+drwxr-xr-x 2 jestin jestin 4096 Jul 20 17:34 Music
+drwxr-xr-x 2 jestin jestin 4096 Jul 20 17:34 Pictures
+drwxr-xr-x 2 jestin jestin 4096 Jul 20 17:34 Public
+drwxr-xr-x 2 jestin jestin 4096 Jul 20 17:34 Templates
+drwxr-xr-x 2 jestin jestin 4096 Jul 20 17:34 Videos
+
+man ls -m
+
+Description: List files as a comma-separated list, across the screen.
+(jestin㉿kali)-[~]
+└─$ ls -m
+Desktop, Documents, Downloads, Music, Pictures, Public, Templates,videos
+man ls -n
+
+Description: Like -l, but show user and group IDs as numbers, instead of names.
+(jestin㉿kali)-[~]
+└─$ ls -n
+total 44
+drwxr-xr-x 2 1000 1000 4096 Jul 20 17:34 Desktop
+drwxr-xr-x 2 1000 1000 4096 Jul 20 17:34 Documents
+drwxr-xr-x 2 1000 1000 4096 Jul 20 18:51 Downloads
+drwxr-xr-x 2 1000 1000 4096 Jul 20 17:34 Music
+drwxr-xr-x 2 1000 1000 4096 Jul 20 17:34 Pictures
+drwxr-xr-x 2 1000 1000 4096 Jul 20 17:34 Public
+drwxr-xr-x 2 1000 1000 4096 Jul 20 17:34 Templates
+drwxr-xr-x 2 1000 1000 4096 Jul 20 17:34 Videos
+
+man ls -o
+
+Description: Like -l, but omit the group info.
+(jestin㉿kali)-[~]
+└─$ ls -o
+total 44
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Desktop
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Documents
+drwxr-xr-x 2 jestin 4096 Jul 20 18:51 Downloads
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Music
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Pictures
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Public
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Templates
+drwxr-xr-x 2 jestin 4096 Jul 20 17:34 Videos
+
+man ls -p
+
+Description: Append / to directory names when listing.
+Example: ls -p → docs/ file.txt
+(jestin㉿kali)-[~]
+└─$ ls -p
+Desktop/  Documents/  Downloads/ Music/  Pictures/  Public/  Templates/  Videos/
+
+man ls -q
+
+Description: Print non-printable characters as ?.
+Useful if filenames have weird chars.
+(jestin㉿kali)-[~]
+└─$ ls -q
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+
+man ls -r
+
+Description: Reverse order of sorting.
+Example: ls -r → last file first.
+(jestin㉿kali)-[~]
+└─$ ls -r
+Videos  Templates  Public  Pictures  Music   Downloads  Documents  Desktop
+
+man ls -s
+
+Description: Print the allocated size (blocks) of each file.
+Example: ls -s file.txt
+(jestin㉿kali)-[~]
+└─$ ls -s
+total 44
+4 Desktop  4 Documents  4 Downloads  4 Music  4 Pictures  4 Public  4 Templates  4 Videos
+man ls -t
+
+Description: Sort files by modification time (newest first).
+(jestin㉿kali)-[~]
+└─$ ls -t
+Downloads  Desktop  Documents  Music  Pictures  Public  Templates  Videos
+
+man ls -u
+
+Description: Sort files by last access time.
+With -l, show the access time instead of modification.
+(jestin㉿kali)-[~]
+└─$ ls -u
+ Music  Pictures  Public  Videos  Documents  Downloads  Desktop  Templates 
+
+man ls -v
+
+Description: Sort files naturally by version (e.g., file1, file2, file10).
+(jestin㉿kali)-[~]
+└─$ ls -v
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  
+
+man ls -w
+
+Description: Set the line width for displaying multiple columns.
+Example: ls -w 50
+ls -w 50
+Desktop      Music     Templates
+Documents   Pictures  Videos
+Downloads    Public
+
+man ls -x
+
+Description: List files in columns, sorted horizontally.
+(jestin㉿kali)-[~]
+└─$ ls -x   
+Desktop  Documents  Downloads   Music  Pictures  Public  Templates  Videos
+
+man ls -y
+
+ Not available (skipped, not in GNU ls).
+
+man ls -Z
+
+Description: Display each file’s SELinux security context (if enabled).
+(jestin㉿kali)-[~]
+└─$ ls -Z
+? Desktop  ? Documents  ? Downloads  ? Music  ? Pictures  ? Public  ? Templates  ? Videos
+
+
+
+Activity 1:
+part 2
+whoami
+
+Prints the current logged-in user’s name.
+Example: whoami 
+jestin
+
+pwd
+
+Prints the present working directory (current folder path).
+Example: /home/jestin
+
+cd
+
+Change directory. Without arguments, goes to home directory.
+Example: cd : /home/jestin
+cd Documents
+/home/jestin/Documents
+
+cd /
+
+Changes to the root directory (/).
+
+cd ..
+
+Goes one level up from current directory.
+Example: /home/jestin/Downloads => cd .. => /home/jestin
+
+cd <path>
+
+Change to the given path.
+Example: cd /etc=> current directory is /etc.
+
+Activity 1:
+part B:
+tree command
+tree -l -L 1
+
+Show directory tree with symbolic links (-l), depth limited to 1 level.
+(jestin㉿kali)-[~]
+└─$ tree -l -L 1
+.
+├── Desktop
+├── Documents
+├── Downloads
+├── Music
+├── Pictures
+├── Public
+├── Templates
+└── Videos
+
+
+tree -l -L 2
+
+Same, but show 2 levels deep.
+(jestin㉿kali)-[~]
+└─$ tree -l -L 2
+.
+├── Desktop
+├── Documents
+├── Downloads
+├── Music
+├── Pictures
+├── Public
+├── Templates
+└── Videos
+
+8 directories, 0 files
+
+
+tree -l -L 3
+
+Same, but show 3 levels deep.
+                                                                                                                        
+┌──(jestin㉿kali)-[~]
+└─$ tree -l -L 3           
+.
+├── Desktop
+├── Documents
+├── Downloads
+├── Music
+├── Pictures
+├── Public
+├── Templates
+└── Videos
+
+
+tree /var/log/apt -La 1
+
+Show contents of /var/log/apt, including hidden files (-a), limit depth to 1, and follow symlinks (-l).
+─(jestin㉿kali)-[~]
+└─$ tree /var/log/apt -La 1
+/var/log/apt
+├── eipp.log.xz
+├── history.log
+├── history.log.1.gz
+├── term.log
+└── term.log.1.gz
+
+1 directory, 5 files
