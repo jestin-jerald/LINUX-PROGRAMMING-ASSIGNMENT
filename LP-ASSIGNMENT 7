@@ -1,0 +1,66 @@
+Name-Jestin Jerald A 
+USN- ENG24CY0116
+ROLL NO-51
+CLASS-3C
+
+LINUX PROGRAMMING ASSIGNMENT 7
+What is a bash shell script? Give one example.
+A bash shell script is a file that contains a sequence of commands for the Bash interpreter to execute. It's a method for automating routine tasks and executing multiple Linux commands efficiently in a batch.
+Example:
+#!/bin/bash
+# Display system uptime and current date
+echo "System Uptime:"
+uptime
+echo "Current Date:"
+date
+
+
+Write a simple shell script to print " Hello World"
+#!/bin/bash
+echo "Hello World"
+
+
+What is the purpose of comments (#) in a shell script?
+Comments are used to explain the purpose of the script or specific sections of code. They are ignored by the shell during execution, serving purely as documentation for developers.
+How do you declare variables (int, float, double, string, Boolean, and char in a shell script)?
+In Bash, variables are loosely typed, meaning they do not require explicit type declaration (like int or string); the shell handles all values primarily as strings.
+Examples:
+name="Abhinav"       # String
+age=21              # Integer (used in arithmetic context)
+is_valid=true       # Boolean (stored as string)
+
+
+Write a shell script to display the current date and time.
+#!/bin/bash
+echo "The system's current date and time is: $(date)"
+
+
+Explain difference between constant and variable in bash.
+A variable is a storage container whose value can be modified (assigned a new value) at any point during the script's execution. A constant is a value that, once defined (usually using the readonly command), cannot be changed or reassigned for the remainder of the script.
+Write a shell script to read two integers and compute sum.
+#!/bin/bash
+read -p "Enter the first integer: " a
+read -p "Enter the second integer: " b
+# Use $((...)) for arithmetic calculation
+echo "The sum is: $((a + b))"
+
+
+What is the use of source command?
+The source command (or simply .) executes a script within the current shell environment. This is specifically useful when the script defines environment variables or functions that need to persist and be accessible in the shell session that launched it.
+How can you debug a shell script?
+The two most common methods are:
+Execution Trace: Running the script with bash -x script.sh displays every command after parameter substitution and before execution.
+Syntax Check: Running the script with bash -n script.sh checks the script for syntax errors without actually executing any of the commands.
+Write a bash script to create and delete a file.
+#!/bin/bash
+FILE_NAME="temp_file.txt"
+touch "$FILE_NAME"
+echo "File $FILE_NAME created."
+
+read -p "Do you want to delete the file? (y/n): " ans
+if [ "$ans" = "y" ]; then
+    rm "$FILE_NAME"
+    echo "File $FILE_NAME deleted."
+fi
+
+
