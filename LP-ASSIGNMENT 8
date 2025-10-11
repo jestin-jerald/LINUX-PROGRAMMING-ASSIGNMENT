@@ -1,0 +1,78 @@
+LINUX PROGRAMMING ASSIGNMENT 8
+NAME:JESTIN JERALD
+USN:ENG24CY0116
+CLASS:3C
+ROLL NO.:51
+
+1.What is a user-defined function?
+
+A user-defined function is a block of code within a script that is named and designed to perform a specific, reusable task. Functions help break down complex scripts into manageable and modular parts.
+
+Example:
+calculate_area() {
+echo $(($1 * $2))
+}
+
+
+2.Write function that multiply two integers.
+
+
+  multiply() {
+  # $1 and $2 are the first and second arguments passed to the function
+  result=$(($1 * $2))
+  echo $result
+   }
+   # Example call: multiply 4 5
+
+
+3.Explain arrays in bash.
+
+
+Arrays in Bash are ordered collections of variables, typically one-dimensional, where elements are accessed using numeric indices starting from 0. Bash also supports associative arrays (using declare -A) which use strings as keys.
+1D Example: names=("Alice" "Bob" "Charlie")
+
+4.Display array elements.
+
+You can loop through all elements of an array using the special @ index notation within a for loop.
+my_array=(a b c d)
+for element in "${my_array[@]}"; do
+echo "$element"
+done
+
+
+5.Purpose of cron.
+
+Cron is the utility used to schedule repetitive jobs or scripts (cron jobs) on a regular, predefined basis, such as hourly, daily, weekly, or at specific times.
+
+6.Cron job to run backup daily at midnight.
+
+0 0 * * * /home/user/backup.sh
+
+(This cron entry runs the script at 0 minutes past the 0th hour, every day of the month, every month, and every day of the week.)
+
+7. Schedule one-time job using at.
+
+The at command is used to schedule a script or command to run once at a specific time in the future.
+echo "/home/user/task.sh" | at 02:30
+
+This schedules /home/user/task.sh to run today at 2:30 AM.
+
+8.Script to display disk usage.
+
+To display the total disk space usage of filesystems in a human-readable format:
+df -h
+
+To display the summarized size of all files and directories in the current path:
+du -sh *
+
+
+9.Log output using tee.
+
+
+The tee command reads standard input and simultaneously writes it to standard output (the terminal) and to one or more files. It's often used to capture the output of a running script while viewing it in real-time.
+./myscript.sh | tee logfile.log
+
+
+10.Example of system automation.
+
+A comprehensive nightly system maintenance script that is automated via cron. This script might include: checking log file sizes, rotating (archiving and clearing) old logs, running database cleanups, and performing an incremental data backup.
