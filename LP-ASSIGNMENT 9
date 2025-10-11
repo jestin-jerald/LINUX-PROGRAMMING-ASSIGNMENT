@@ -1,0 +1,96 @@
+LINUX PROGRAMMING ASSIGNMENT 9
+NAME:jestin jerald
+USN:ENG24CY0116
+CLASS:3C
+ROLL NO.:51
+
+1. Script to check even or odd.
+This script uses the modulo operator (%) to check if the remainder when divided by 2 is 0.
+read -p "Enter number: " n
+if (( n % 2 == 0 )); then
+    echo "$n is even"
+else
+    echo "$n is odd"
+fi
+
+
+2. Difference between if and case.
+
+The if statement is used for evaluating general conditional expressions (e.g., comparison of variables, testing file status). The case statement is used for checking if a single value matches one of a predetermined set of patterns, making it cleaner for multi-way branching.
+
+3. Find largest of three numbers.
+
+read -p "Enter A: " a
+read -p "Enter B: " b
+read -p "Enter C: " c
+
+# Assume A is the largest initially
+largest=$a
+
+# Check if B is greater
+if (( b > largest )); then
+    largest=$b
+fi
+
+# Check if C is greater
+if (( c > largest )); then
+    largest=$c
+fi
+
+echo "The largest number is: $largest"
+
+
+4.Traverse array with for loop.
+my_array=("apple" "banana" "cherry")
+for item in "${my_array[@]}"; do
+    echo "Item: $item"
+done
+
+
+5.Loop through files in directory.
+The * wildcard matches all files and directories in the current working directory, which the for loop then iterates over.
+for file_name in *; do
+    echo "Processing file: $file_name"
+done
+
+
+6.Difference between while and until.
+
+A while loop executes its command block repeatedly as long as its controlling condition is true. An until loop executes its command block repeatedly until its controlling condition becomes true.
+
+7.Countdown timer script.
+read -p "Start countdown from: " t
+while (( t > 0 )); do
+    echo "$t"
+    sleep 1   # Pause for 1 second
+    ((t--))   # Decrement t
+done
+echo "Time's up!"
+
+
+8.Use of break and continue.
+break: Immediately terminates the execution of the entire loop (for, while, or until) and transfers control to the command immediately following the loop.
+continue: Skips the remaining commands in the current iteration of the loop and starts the next iteration.
+
+9.Check if file exists.
+
+read -p "Enter filename: " f
+if [ -e "$f" ]; then
+    echo "File '$f' exists."
+else
+    echo "File '$f' does not exist."
+fi
+
+
+10. Factorial using for loop.
+read -p "Enter number: " n
+factorial=1
+
+# Loop from 2 up to n
+for (( i=2; i<=n; i++ )); do
+    factorial=$((factorial * i))
+done
+
+echo "The factorial of $n is: $factorial"
+
+
