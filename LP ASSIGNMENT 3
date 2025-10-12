@@ -1,0 +1,93 @@
+NAME-JESTIN JERALD A 
+ROLL NO-51
+CLASS-3C
+USN-ENG24CY0116
+
+
+LINUX PROGRAMMING ASSIGNMENT 3
+Questions & Answers (CO1, CO2, CO3, CO4)
+1. Distinguish between man and whatis commands? Justify with proper example. (C01)
+The man and whatis commands are both used for finding information about Linux commands, but they serve different purposes:
+Feature
+man (Manual)
+whatis
+Purpose
+Displays the complete documentation, including descriptions, options, and file formats.
+Displays a concise, one-line summary of a command's function.
+Scope
+Comprehensive, often spanning multiple pages.
+Brief, intended for quick reference.
+Example
+man ls (Displays the entire manual page for the ls command).
+whatis ls (Output: ls (1) - list directory contents).
+
+2. Use the tee command to save the output of ls -l into a file while also displaying it. (CO4)
+The tee command allows output to be viewed on the screen (standard output) and simultaneously redirected to a file.
+Command:
+ls -l | tee file_list.txt
+
+
+3. Explain with an example how the tee command can be used in logging. (CO4)
+The tee command is highly valuable in logging by ensuring that the results of a lengthy script or command are both seen in real-time by the user and permanently recorded in a log file. This prevents losing information if the script fails unexpectedly.
+Example:
+# This command runs a memory check, displays the results, and saves them to log.txt
+free -h | tee system_memory_log.txt
+
+
+4. List the steps involved in installing Ubuntu 25.04 LTS on Oracle VirtualBox. (CO2)
+(Note: These are general steps, adapted for a typical virtual machine installation.)
+Preparation: Download the Ubuntu 25.04 LTS ISO file.
+VM Creation: Open VirtualBox and click "New." Provide a name for the VM, select "Linux" as the type, and "Ubuntu (64-bit)" as the version.
+Memory and Disk: Allocate sufficient RAM (e.g., 4GB) and create a virtual hard disk (VDI), allocating a suitable size (e.g., 25GB) dynamically.
+Mount ISO: In the VM settings, go to Storage, select the empty optical drive, and choose the downloaded Ubuntu ISO file.
+Start Installation: Start the VM. Choose "Install Ubuntu," select language and keyboard layout.
+Installation Type: Select "Normal installation" and choose the "Erase disk and install Ubuntu" option (this erases the virtual disk, not your host computer's disk).
+Finalize: Set your location, create a user account (username and password), and wait for the installation to complete.
+Reboot: When prompted, restart the VM and remove the installation ISO (VirtualBox usually handles this automatically).
+5. During Ubuntu OS installation, you face a Kernel Panic Error. How would you troubleshoot it? (CO3)
+A Kernel Panic usually indicates a critical hardware or configuration issue. Troubleshooting steps in a VM environment include:
+Check VM Settings: Verify that the OS type and version in VirtualBox settings match the ISO (e.g., ensure 64-bit is selected).
+Disable Virtualization Features: Temporarily disable hardware acceleration features like VT-x/AMD-V and Nested Paging in the VM settings (System > Acceleration).
+Verify ISO Integrity: Redownload the Ubuntu ISO file to ensure it wasn't corrupted during the download process.
+Adjust RAM/CPU: Reduce the number of allocated CPU cores or the amount of RAM to rule out issues with resource allocation limits.
+Boot Options: If the error persists, try adding boot parameters like nomodeset or acpi=off at the Grub boot menu to bypass potential driver or ACPI issues.
+6. Write the command to display the system's hostname? How to change hostname using sysctl command? (CO1)
+Display Hostname:
+hostname
+
+
+Change Hostname using sysctl: The sysctl command is typically used to view/modify kernel parameters at runtime, but it's not the primary tool for changing the hostname permanently. The correct primary command is hostnamectl.
+To change a kernel parameter using sysctl that might be related to the network identity (though usually not the main hostname):
+sysctl kernel.hostname="new_hostname"
+
+Note: The modern, preferred, and permanent way to change the hostname is: hostnamectl set-hostname new_hostname
+7. Which command is used to show the calendar of the year 1984 with August month? (CO1)
+The cal command is used for displaying a calendar.
+Command:
+cal 8 1984
+
+
+8. Write a command to display system uptime and logged-in users together. (CO3)
+The w command provides both the system uptime and a list of currently logged-in users, along with what they are executing.
+Command:
+w
+
+
+(Alternatively, uptime shows uptime, and who shows users. You could combine them using a semicolon: uptime; who)
+9. Use the find command to list all ".c" files in /home/user. (CO1)
+The find command is used for searching files based on various criteria.
+Command:
+find /home/user -name "*.c"
+
+
+10. How do you change file permissions to allow only the owner to read and write? (CO1)
+The chmod command is used to change permissions. To give the owner (u) read (r) and write (w) permission, and explicitly remove permissions from the group (g) and others (o):
+Command (Symbolic):
+chmod u=rw,g=,o= filename
+
+
+Command (Octal):
+chmod 600 filename
+
+
+(Where 6 = read+write for owner, and 00 means no permissions for group or others).
