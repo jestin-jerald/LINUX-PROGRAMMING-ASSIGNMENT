@@ -1,0 +1,99 @@
+Name - Jestin Jerald A 
+Roll no-51
+USN-ENG24CY0116
+Class-3C
+
+
+LINUX PROGRAMMING ASSIGNMENT 5
+Questions & Answers (CO1, CO2, CO4)
+1. What is a shell in Linux OS? How many categories of shell is currently exists in Linux? Why bash shell is very popular in Linux distribution? (CO2)
+What is a Shell? The shell is a command-line interpreter that acts as an interface between the user and the Linux kernel. It takes user commands, interprets them, and executes them by calling appropriate kernel functions.
+Categories of Shells: Shells are broadly categorized based on their command syntax. The two main families are:
+Bourne Shell Family (sh, bash, ksh, zsh)
+C Shell Family (csh, tcsh)
+Why Bash is Popular: Bash (Bourne-Again Shell) is popular because it offers backward compatibility with the original Bourne Shell (sh) while adding many powerful features, including:
+Command Line Editing: Allows easy editing of previously typed commands.
+Job Control: Ability to manage foreground and background processes.
+Advanced Scripting: Support for variables, functions, and control structures (if/else, loops) for complex automation.
+Tab Completion: Automatically completes command and file names when the Tab key is pressed.
+2. What does the ls -Z command display? (CO1)
+The ls -Z command displays the Security Context of files and directories. This context is specific to systems running SELinux (Security-Enhanced Linux) or other Mandatory Access Control (MAC) systems. The output typically includes information about the user, role, type, and security level associated with the file.
+Example Output:
+-rw-r--r--. user_u:object_r:user_home_t filename
+
+
+3. Write a command to list all hidden files in the current directory. (CO1)
+Hidden files in Linux start with a dot (.). The ls -a command lists all files, including the implicit hidden files like . (current directory) and .. (parent directory).
+Command:
+ls -a
+
+
+(To show ONLY hidden files and exclude . and ..: ls -d .*)
+4. Explain the difference between hard links and soft links (symbolic links) in Linux. (CO1)
+Feature
+Hard Link
+Soft Link (Symbolic Link)
+Creation
+Creates a new directory entry that points to the same inode as the original file.
+Creates a small file that points to the path of the original file.
+Independence
+If the original file is deleted, the data remains accessible through the hard link.
+If the original file is deleted, the soft link points to nothing (becomes a "broken link").
+Restrictions
+Cannot link directories; cannot link across filesystems.
+Can link files or directories; can link across filesystems.
+Inode
+Shares the same inode number as the original.
+Has its own unique inode number.
+
+5. A file has permissions -rwxr-x--x. Explain who can read, write, and execute it. (C01)
+The permission string is read in three sets of three characters:
+Permission Set
+String
+Explanation
+Owner (User)
+rwx (7)
+Read, Write, and Execute permission.
+Group
+r-x (5)
+Read and Execute permission, but no Write permission.
+Others
+--x (1)
+Execute permission, but no Read or Write permission.
+
+6. Write the command to change the group ownership of a file data.txt to group staff. (CO1)
+The chgrp command is used to change the group owner of a file.
+Command:
+chgrp staff data.txt
+
+
+7. Why is it dangerous to give 777 permissions to a file? Explain with an example. (C01)
+Giving a file 777 permissions (rwxrwxrwx) means that everyone (owner, group, and all others) has Read, Write, and Execute permissions.
+Danger: If a file contains sensitive data (like a configuration file with passwords) and has 777 permissions, any user on the system or any process they run can read the sensitive data (r). More dangerously, they can modify (w) or replace the file, potentially introducing malicious code or causing system instability.
+Example: A system script, say system_update.sh, is set to 777. A malicious user can overwrite its content with a command to delete the home directories of other users, and when the original script is run by the system, it executes the malicious code instead.
+8. What is the difference between apropos (i.e., man -k) and whatis (i.e., man -f)? (C01)
+Command
+Alias
+Search Method
+Purpose
+apropos
+man -k
+Searches the manual page's name and short description for keywords.
+Used when you don't know the exact command name but know what it does (e.g., apropos network lists all networking commands).
+whatis
+man -f
+Only searches the manual page's name for an exact match.
+Used when you know the command name and just need its one-line description.
+
+9. Write a command to redirect the error output of a command to a file named error.log. (CO1)
+To redirect standard error (stderr, file descriptor 2) to a file:
+Command:
+command_that_might_fail 2> error.log
+
+
+10. How can you use the tee command to append output to a file instead of overwriting it? (CO4)
+By default, tee overwrites the file. To append, you must use the -a option.
+Command:
+command_output | tee -a existing_log.txt
+
+
