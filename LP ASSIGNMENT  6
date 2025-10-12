@@ -1,0 +1,84 @@
+Name/-Jestin Jerald A
+USN-ENG24CY0116
+Roll no-51
+Class-3c
+
+
+LINUX PROGRAMMING ASSIGNMENT 6
+Questions & Answers (CO1, CO2, CO3, CO4)
+1. Which command is used to list the contents of a directory? Justify with proper example. (CO1)
+The ls command is used to list the contents of a directory.
+Example:
+ls -lath
+
+
+Justification: The example uses common options: -l (long format, showing permissions, owner, size, date), -a (show all files, including hidden ones), -t (sort by time/date last modified), and -h (human-readable file sizes).
+2. Write the command to create a new directory named 123test_dir. (CO1)
+The mkdir command is used to make new directories.
+Command:
+mkdir 123test_dir
+
+
+3. What is the purpose of the sed command? Justify with proper example. (C01)
+The sed (Stream Editor) command is used for parsing and transforming text. It works by applying a specified set of editing commands to an input stream or file, often used for powerful find-and-replace operations.
+Example (Substitution):
+# Finds every occurrence of 'old' and replaces it with 'new' globally in the file
+sed 's/old/new/g' original_file.txt
+
+
+4. Which distinct command is used to display one-line descriptions of any commands? (C01)
+The whatis command is specifically designed to display the one-line summary description of a command from its manual page entry.
+Command:
+whatis ls
+
+
+Output: ls (1) - list directory contents
+5. Write the command to create an empty file named "notes.txt". (CO1)
+The touch command is the standard way to create an empty file (or update the timestamp of an existing file).
+Command:
+touch notes.txt
+
+
+6. Differentiate between grep and awk commands with an example. (CO2)
+Command
+Purpose
+Primary Focus
+Example Use Case
+grep
+Filtering - Searches for lines that match a specified text pattern (regular expression) and displays the entire line.
+Lines and Patterns
+grep "error" logfile.log (Finds and displays every line containing "error").
+awk
+Processing - Treats text as a structured database of records (lines) and fields (columns), used for complex data manipulation.
+Fields and Columns
+awk -F ':' '{print $1}' /etc/passwd (Prints only the first field/column/username from the file).
+
+7. Write the command to give read, write, and execute permission to the owner of a file script.sh. (CO1)
+Using symbolic mode (u+rwx):
+Command:
+chmod u+rwx script.sh
+
+
+(If you want to set the absolute permissions to 700, use: chmod 700 script.sh)
+8. How is chown different from chgrp? Give one example for each. (CO1)
+chown (Change Owner): Used to change the user owner of a file or directory.
+Example: chown alice data.txt (Changes the user owner of data.txt to alice).
+chgrp (Change Group): Used to change the group owner of a file or directory.
+Example: chgrp developers data.txt (Changes the group owner of data.txt to developers).
+9. A user complains that they cannot execute a file even though it exists in their directory. How would you troubleshoot this using ls -l, chmod, and whoami? (CO3)
+Identify the User and File: The user runs whoami to confirm their identity.
+Inspect Permissions: The user runs ls -l filename to view the file's current permissions, owner, and group.
+Troubleshooting Step: Check if the execution bit (x) is present for the owner, group, or others, and which category the current user falls into. (e.g., -rw-r--r-- means no one can execute it).
+Apply Execution Permission: If the execution bit is missing for the user's category (e.g., owner), the user runs chmod to add it.
+Fix: If the user is the owner, they run: chmod u+x filename.
+Test: The user tries running the file again.
+10. Design a command pipeline to: find all log files modified in the last 2 days in /var/log, display them on screen, and save the results into a file recent_logs.txt using tee command. (CO4)
+This pipeline uses find to locate the files and tee -a to output the results to both the screen and the log file.
+Command Pipeline:
+find /var/log -type f -name "*.log" -mtime -2 | tee recent_logs.txt
+
+
+Explanation:
+find ... -mtime -2: Locates all .log files in /var/log modified less than 2 days ago.
+| tee recent_logs.txt: Pipes the list of file paths to tee, which prints them to the terminal and simultaneously saves them to recent_logs.txt (overwriting existing content, since -a was not requested, but for logs, -a is usually safer).
+(Note: If appending was desired, the command would be ... | tee -a recent_logs.txt)
