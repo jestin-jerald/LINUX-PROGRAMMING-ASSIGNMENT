@@ -1,0 +1,47 @@
+GUNZIP and GREP Commands – Detailed Writeup
+1. GUNZIP Command
+What is gunzip?
+The 'gunzip' command decompresses files that were compressed using the 'gzip' utility. It restores files from .gz format back to their original state.
+Why is gunzip used?
+- Used by system administrators to extract compressed logs and backups.
+- Saves disk space and speeds up file transfers.
+- Makes compressed files readable for processing.
+How gunzip works with examples
+$ gzip sample.txt
+$ gunzip sample.txt.gz
+gunzip Output Snapshot
+Before:
+sample.txt.gz
+After:
+sample.txt
+gunzip Options & Flags
+- -c : Write output to standard output.
+- -k : Keep compressed file.
+- -v : Verbose mode.
+- -f : Force overwrite.
+- -t : Test compressed file integrity.
+ gunzip History
+gunzip is part of the gzip utility suite created in 1992 by Jean-loup Gailly and Mark Adler. It replaced older Unix compress utilities and became standard on Linux.
+2. GREP Command
+ What is grep?
+grep stands for Global Regular Expression Print. It is used to search text using patterns.
+Why is grep used?
+- To search logs for errors.
+- To filter command outputs.
+- To find patterns in configuration files.
+- Supports powerful regular expressions.
+ How grep works with examples
+$ grep 'error' logfile.txt
+$ grep -r 'failed' /var/log
+ grep Output Snapshot
+error: failed to start service
+Found inside logfile.txt
+ grep Options & Flags
+- -r : Recursive search
+- -i : Ignore case
+- -n : Show line numbers
+- -w : Match whole word
+- -l : Show filenames only
+- -E : Use extended regex
+ grep History
+Developed in 1973 by Ken Thompson at Bell Labs. Name comes from the ed editor command 'g/re/p'. It is now one of the most widely used Unix tools.
